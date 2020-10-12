@@ -1,5 +1,5 @@
-name = "ParticipationAnalyticsRESTServer"
-uuid = "df49cce7-f224-472a-a562-31b671e72d59"
+name = "VisualParticipationAnalyticsRESTServer"
+uuid = "a38155fa-736c-4d04-bb54-6d812e1b3bf6"
 authors = ["Lars Schütz"]
 version = "0.1.0"
 

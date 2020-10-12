@@ -1,4 +1,4 @@
-module ParticipationAnalyticsRESTServer
+module VisualParticipationAnalyticsRESTServer
 
 using DataFrames
 using HTTP

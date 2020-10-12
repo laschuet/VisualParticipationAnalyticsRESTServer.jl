@@ -1,5 +1,5 @@
-using ParticipationAnalyticsRESTServer
 using Test
+using VisualParticipationAnalyticsRESTServer
 
-@testset "ParticipationAnalyticsRESTServer" begin
+@testset "VisualParticipationAnalyticsRESTServer" begin
 end
