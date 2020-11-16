@@ -58,7 +58,7 @@ end
 """
     start(port::Integer)
 """
-function start(port::Integer=8080)
+function start(port::Integer=3010)
     @async HTTP.serve(jsonhandler, HTTP.Sockets.localhost, port)
     println("REST server is running at http://localhost:$port")
 end
