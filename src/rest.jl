@@ -10,7 +10,7 @@ const HEADERS = [
 """
     getdatasets(req::HTTP.Request)
 """
-function getdatasets(req::HTTP.Request)
+function getdatasets(::HTTP.Request)
     filenames = readdir(DATASET_ROOT)
     datasets = []
     for (index, filename) in enumerate(filenames)
@@ -48,11 +48,13 @@ HTTP.@register(router, "GET", "$API_ROOT/datasets/*/contributions", getcontribut
 """
 function jsonhandler(req::HTTP.Request)
     res = HTTP.handle(router, req)
-    if Tables.istable(res)
-        return HTTP.Response(200, HEADERS; body=arraytable(res))
-    else
-        return HTTP.Response(200, HEADERS; body=JSON3.write(res))
+    if isa(res, HTTP.Response) && HTTP.iserror(res)
+        code = convert(Int, HTTP.status(res))
+        body = JSON3.write(HTTP.body(res))
+        return HTTP.Response(code, HEADERS; body=body)
     end
+    body = Tables.istable(res) ? arraytable(res) : JSON3.write(res)
+    return HTTP.Response(200, HEADERS; body=body)
 end
 
 """
