@@ -1,5 +1,5 @@
 const API_ROOT = "/api/v1"
-const DATASET_ROOT = "dataset"
+const DATASET_ROOT = "$(homedir())/datasets/participation"
 const HEADERS = [
     "Access-Control-Allow-Headers" => "*",
     "Access-Control-Allow-Methods" => "GET; POST; OPTIONS",
